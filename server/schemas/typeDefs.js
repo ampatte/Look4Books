@@ -11,7 +11,7 @@ type Mutation {
     
     addUser(username: String!, email: String!, password: String!): Auth
 
-    saveBook(author:[], description: String!, title: String!, bookId: ID!, link: params): User
+    saveBook(author: String!, description: String!, title: String!, bookId: ID!, image: String, link: String!): User
 
     removeBook(bookId: ID!): User   
 }
@@ -21,22 +21,22 @@ type User {
     username: String
     email: String
     bookCount: String!
-    savedBooks: [Book]
+    savedBooks: [Book]!
 }
 
 type Book {
-    id: ID
+    bookId: ID
     authors: [String!]
     description: String!
     title: String!
-    image
-    link
+    image: String
+    link: String!
 }
 
 type Auth{
-    token ID
+    token: ID
     user: User
 }
 `;
 
-mosule.exports = typeDefs;
+module.exports = typeDefs;
